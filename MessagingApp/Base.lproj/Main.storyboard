@@ -1,24 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MessageList-->
+        <scene sceneID="6fV-wD-ABI">
+            <objects>
+                <viewController storyboardIdentifier="messageList" title="MessageList" id="qgV-e8-kL7" customClass="MessageListViewController" customModule="MessagingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="udm-n6-NW9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dJn-x2-uDm">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xu0-KR-xio">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="messageCell" id="AgI-bd-ISb">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AgI-bd-ISb" id="Y7I-5Z-pEk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v6-ye-ASf">
+                                <rect key="frame" x="329" y="50" width="30" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="SyF-gL-9Mt"/>
+                                </constraints>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="AddButtonPressed:" destination="qgV-e8-kL7" eventType="touchUpInside" id="Jhu-Bg-nVF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DV-Kn-uOo">
+                                <rect key="frame" x="24" y="44" width="30" height="30"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="CloseButton:" destination="qgV-e8-kL7" eventType="touchUpInside" id="duH-CA-YjF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0DV-Kn-uOo" firstAttribute="leading" secondItem="lu3-I2-rf1" secondAttribute="leading" constant="24" id="0Id-JU-7eB"/>
+                            <constraint firstItem="7v6-ye-ASf" firstAttribute="top" secondItem="lu3-I2-rf1" secondAttribute="top" constant="30" id="0tX-ma-wrr"/>
+                            <constraint firstItem="dJn-x2-uDm" firstAttribute="bottom" secondItem="lu3-I2-rf1" secondAttribute="bottom" id="8nJ-HV-DHy"/>
+                            <constraint firstItem="0DV-Kn-uOo" firstAttribute="top" secondItem="lu3-I2-rf1" secondAttribute="top" constant="24" id="Gts-7z-7Dq"/>
+                            <constraint firstAttribute="trailing" secondItem="dJn-x2-uDm" secondAttribute="trailing" id="Z9r-1q-87I"/>
+                            <constraint firstItem="7v6-ye-ASf" firstAttribute="trailing" secondItem="udm-n6-NW9" secondAttribute="trailingMargin" id="eTx-Jq-4sR"/>
+                            <constraint firstItem="dJn-x2-uDm" firstAttribute="top" secondItem="0DV-Kn-uOo" secondAttribute="bottom" constant="6" id="oQR-ak-98b"/>
+                            <constraint firstItem="dJn-x2-uDm" firstAttribute="leading" secondItem="udm-n6-NW9" secondAttribute="leading" id="vOR-ZD-M4c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lu3-I2-rf1"/>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="xu0-KR-xio" id="nmj-5m-zH3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKD-K1-JxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1229.5999999999999" y="-144.3778110944528"/>
+        </scene>
+        <!--MessageEditor-->
+        <scene sceneID="KJ3-Le-IWQ">
+            <objects>
+                <viewController storyboardIdentifier="messageEditor" title="MessageEditor" id="H0B-mi-yeh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubw-NU-uAy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jW1-2N-jBv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GnS-i3-fEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="-139"/>
+        </scene>
+        <!--LogIn-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logIn" title="LogIn" id="BYZ-38-t0r" customClass="LogInViewController" customModule="MessagingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8P-vp-eOh">
+                                <rect key="frame" x="166" y="277" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="LogInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kan-Au-DJa"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="473" y="-144"/>
         </scene>
     </scenes>
 </document>
